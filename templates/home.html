@@ -15,8 +15,7 @@
 	{% endif %}
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
-
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
   </head>
@@ -26,7 +25,7 @@
   		<div class="inner">
   	      <h3 class="masthead-brand">UniqX</h3>
   	      <nav class="nav nav-masthead justify-content-center">
-  			<a class="nav-link active" href="url_for('home')">Home</a>
+  			<a class="nav-link active" href="/home">Home</a>
   			<a class="nav-link" href="/register">Sign up</a>
   			<a class="nav-link" href="/login">Login</a>
   	      </nav>

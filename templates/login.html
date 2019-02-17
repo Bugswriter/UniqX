@@ -1,4 +1,32 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1>Login Page</h1>
+
+<form class="form-signin">
+  <img class="mb-4" src={{ url_for('static' , filename='images/logo.png') }} alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+  
+  <label for="inputEmail" class="sr-only">Username</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+    </div>
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+  </div>
+  
+  <label for="inputPassword" class="sr-only">Password</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
+    </div>
+    <input type="password" id="inputPassowrd" class="form-control" placeholder="Password" required>
+  </div>
+  
+  
+  <div class="checkbox mb-3" id="form-checkbox">
+    <label>
+      <input type="checkbox" value="remember-me">&nbsp Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
 {% endblock content %}
