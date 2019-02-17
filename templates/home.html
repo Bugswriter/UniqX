@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+	<div class="inner">
+      <h3 class="masthead-brand">UniqX</h3>
+      <nav class="nav nav-masthead justify-content-center">
+		<a class="nav-link active" href="url_for('home')">Home</a>
+		<a class="nav-link" href="/register">Sign up</a>
+		<a class="nav-link" href="/login">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Welcome to UniqX</h1>
+    <p class="lead">UniqX is a Social Networking Website for GNU Fans. Typical Linux and Unix users, geeks, open source lovers. Identify yourself as a part of open software community</p>
+    <p class="lead">
+      <a href="/about" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
+  </main>
+  
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>website source code - <a href="https://getbootstrap.com/">github</a>, by <a href="https://twitter.com/bugswriter">@bugswriter</a>.</p>
+    </div>
+  </footer>
+</div>
+{% endblock content %}
