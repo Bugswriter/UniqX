@@ -54,11 +54,18 @@
 	  
   </div>
   </nav>
-  
-  
-  {% block content %}
-  {% endblock %}
-  
+  <div class="container flashmsg">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+	{% block content %}{% endblock %}
   <footer class="navbar fixed-bottom container">
 	<p>&copy; Company 2017-2019</p>
   </footer>	
