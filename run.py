@@ -1,6 +1,8 @@
-from flask import Flask , render_template, url_for
+from flask import Flask , render_template, url_for, flash, redirect
+from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "04beccaf060f0a03ebfc301930fc1c30"
 
 @app.route('/')
 @app.route('/home')
@@ -13,11 +15,17 @@ def about():
 
 @app.route('/login')
 def login():
-    return render_template('login.html', title='Login')
+    form = LoginForm()
+    return render_template('login.html', title='Login', form = form)
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html', title='Register')
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        print("Form Submitting successful")
+        return redirect(url_for('login'))
+
+    return render_template('register.html', title='Register', form = form )
 
 
 if __name__=='__main__':
