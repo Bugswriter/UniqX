@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if success %}
+<h1>{{ success }}</h1>
+{% endif %}
+<form method="POST" action="" class="form-signin">
+  {{ form.hidden_tag() }}
+  <img class="mb-4" src={{ url_for('static' , filename='images/logo.png') }} alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+  
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+    </div>
+	{% if form.username.errors %}
+	{{ form.username(class="form-control is-invalid", placeholder="Username") }}
+	<div class="invalid-feedback">
+	  {% for error in form.username.errors %}
+	  <span>{{ error }}</span>
+	  {% endfor %}
+      {% else %}
+	  {{ form.username(class="form-control", placeholder="Username") }}
+	  {% endif %}
+	</div>
+  </div>
+  
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
+    </div>
+    {% if form.password.errors %}
+	{{ form.password(class="form-control is-invalid", placeholder="Password") }}
+	<div class="invalid-feedback">
+	  {% for error in form.password.errors %}
+	  <span>{{ error }}</span>
+	  {% endfor %}
+	  {% else %}
+	  {{ form.password(class="form-control", placeholder="Password") }}
+	  {% endif %}
+	</div>
+  </div>
+  <div class="form-check">
+	{{ form.remember(class="form-check-input") }}
+	{{ form.remember.label(class="form-check-label") }}
+  </div>
+  <div class="form-group">
+	{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+  </div>
+  <div class="border-top pt-3">
+	<small class="text-muted">
+	 Password got lost?<a class="ml-2" href="#">Forget Password</a>
+  </small>
+  </div>
+
+</form>
+{% endblock content %}
