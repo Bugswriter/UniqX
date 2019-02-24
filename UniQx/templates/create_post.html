@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" action="" class="form-signin">
+  {{ form.hidden_tag() }}
+  <img class="mb-4" src={{ url_for('static' , filename='images/logo.png') }} alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Create Post</h1>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-tags" aria-hidden="true"></i></div>
+    </div>
+	{% if form.title.errors %}
+	{{ form.username(class="form-control is-invalid", placeholder="Name") }}
+	<div class="invalid-feedback">
+	  {% for error in form.title.errors %}
+	  <span>{{ error }}</span>
+	  {% endfor %}
+      {% else %}
+	  {{ form.title(class="form-control", placeholder="Title") }}
+	  {% endif %}
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
+      </div>
+      {% if form.image.errors %}
+	  {{ form.image(class="form-control is-invalid", placeholder="image(Optional)") }}
+	  <div class="invalid-feedback">
+		{% for error in form.image.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.image(class="form-control", placeholder="image(Optional)") }}
+		{% endif %}
+	  </div>
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      {% if form.content.errors %}
+	  {{ form.content(class="form-control is-invalid", placeholder="content") }}
+	  <div class="invalid-feedback">
+		{% for error in form.assword.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.content(class="form-control", placeholder="Content") }}
+		{% endif %}
+	  </div>
+	</div>
+	{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+</form>
+
+{% endblock content %}

@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" action="" class="form-signin">
+  {{ form.hidden_tag() }}
+  <img class="mb-4 border rounded-circle" src={{ url_for('static' , filename='profile_pic/default.jpg') }} alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Set Profile</h1>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+    </div>
+	{% if form.name.errors %}
+	{{ form.username(class="form-control is-invalid", placeholder="Name") }}
+	<div class="invalid-feedback">
+	  {% for error in form.name.errors %}
+	  <span>{{ error }}</span>
+	  {% endfor %}
+      {% else %}
+	  {{ form.name(class="form-control", placeholder="Name") }}
+	  {% endif %}
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+      </div>
+      {% if form.bio.errors %}
+	  {{ form.bio(class="form-control is-invalid", placeholder="Bio(Optional)") }}
+	  <div class="invalid-feedback">
+		{% for error in form.bio.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.bio(class="form-control", placeholder="Bio(Optional)") }}
+		{% endif %}
+	  </div>
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-globe-asia" aria-hidden="true"></i></div>
+      </div>
+      {% if form.country.errors %}
+	  {{ form.country(class="form-control is-invalid", placeholder="Country") }}
+	  <div class="invalid-feedback">
+		{% for error in form.assword.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.country(class="form-control", placeholder="Country") }}
+		{% endif %}
+	  </div>
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-table" aria-hidden="true"></i></div>
+      </div>
+      {% if form.dob.errors %}
+	  {{ form.dob(class="form-control is-invalid", placeholder="Date of Birth") }}
+	  <div class="invalid-feedback">
+		{% for error in form.dob.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.dob(class="form-control", placeholder="Date of Birth") }}
+		{% endif %}
+	  </div>
+	</div>
+
+	<div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
+      </div>
+      {% if form.cover.errors %}
+	  {{ form.cover(class="form-control is-invalid", placeholder="Cover picture") }}
+	  <div class="invalid-feedback">
+		{% for error in form.cover.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.cover(class="form-control") }}
+		{% endif %}
+	  </div>
+	</div>
+	<div class="input-group mb-2 mr-sm-2">
+      <!-- <div class="input-group-prepend">
+		<div class="input-group-text"><i class="fa fa-male" aria-hidden="true"></i></div>
+      </div> -->
+      {% if form.gender.errors %}
+	  {{ form.gender(class="form-control is-invalid", placeholder="Gender") }}
+	  <div class="invalid-feedback">
+		{% for error in form.gender.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% else %}
+		{{ form.gender(class="form-control list-inline", placeholder="Gender") }}
+		{% endif %}
+	  </div>
+	</div>
+
+	</div>
+
+	{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+</form>
+
+{% endblock content %}

@@ -7,7 +7,7 @@ from UniQx.config import Config
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-login_manager.login_view = 'login'
+login_manager.login_view = 'user.login'
 login_manager.login_message_category = 'info'
 
 
@@ -18,7 +18,11 @@ def create_app(class_config=Config):
 	bcrypt.init_app(app)
 	login_manager.init_app(app)
 	from UniQx.main.routes import main
-	from UniQx.users.routes import users
-	app.register_blueprint(users)
+	from UniQx.user.routes import user
+	from UniQx.profile.routes import profile
+	from UniQx.post.routes import post
+	app.register_blueprint(user)
 	app.register_blueprint(main)
+	app.register_blueprint(profile)
+	app.register_blueprint(post)
 	return app
